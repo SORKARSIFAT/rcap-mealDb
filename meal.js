@@ -1,5 +1,6 @@
-const loadData = ()=>{
-    fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=fish")
+const loadData = (searchText)=>{
+    const URL= `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
+    fetch(URL)
     .then(res => res.json())
     .then(data => displayData(data.meals))
 }
@@ -9,6 +10,7 @@ const loadData = ()=>{
 const displayData = meals => {
     // console.log(meals); 
     const container = document.getElementById("meals-container");
+    container.innerHTML = "";
    meals.forEach(meal => { 
     console.log(meal);
     const mealDiv = document.createElement("div");
@@ -32,4 +34,14 @@ const displayData = meals => {
 
 }
 
-loadData();
+const searchMeals =()=>{
+    console.log("btn");
+    const searchText2 = document.getElementById("search-field").value;
+    loadData(searchText2)
+    console.log(searchText2);
+  
+
+}
+
+
+loadData("rice");
