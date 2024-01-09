@@ -10,7 +10,7 @@ const loadData = (searchText)=>{
 const displayData = meals => {
     // console.log(meals); 
     const container = document.getElementById("meals-container");
-    container.innerHTML = "";
+    container.innerText= "";
    meals.forEach(meal => { 
     console.log(meal);
     const mealDiv = document.createElement("div");
@@ -24,6 +24,7 @@ const displayData = meals => {
               <p class="card-text"></p>
              
              <a href="${meal.strYoutube}" target="_blank" class="btn btn-success ">YouTube Link</a>
+            
             </div>
           </div>
     `;
