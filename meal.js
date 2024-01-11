@@ -25,7 +25,7 @@ const displayData = meals => {
              
              <a href="${meal.strYoutube}" target="_blank" class="btn btn-success ">YouTube Link</a>
            
-     <button onclick= type="button" class="btn btn-primary"   data-bs-toggle="modal" data-bs-target="#mealDetails">Details
+     <button onclick="loadMealDetails(${meal.idMeal})" type="button" class="btn btn-primary"   data-bs-toggle="modal" data-bs-target="#mealDetails">Details
     </button>  
     </div>
     </div>
@@ -42,6 +42,34 @@ const searchMeals =()=>{
   
 
 }
+
+
+const loadMealDetails = idMeal =>{
+  
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayMealDetails(data.meals[0]))
+
+}
+
+const displayMealDetails = meal =>{
+    document.getElementById("mealDetailsLabel").innerText = meal.strMeal;
+    const modalBody = document.getElementById("modalBody");
+    modalBody.innerHTML =`
+    <p class="text-success"><span class="fs-5 text">Meal Area:</span> ${meal.strArea}</p>
+    <p class="text-success"><span class="fs-5 text">Meal Category :</span> ${meal.strCategory}</p>
+    <p class="text-primary"><span class="fs-5 text">Meal Instructions:</span> ${meal.strInstructions}</p>
+    
+
+    `
+
+
+
+
+
+}
+
 
 
 
