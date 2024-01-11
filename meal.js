@@ -21,18 +21,17 @@ const displayData = meals => {
             <div class="card-body">
               <h5 class="card-title">${meal.strMeal}</h5>
              
-              <p class="card-text"></p>
+              
              
              <a href="${meal.strYoutube}" target="_blank" class="btn btn-success ">YouTube Link</a>
-            
-            </div>
-          </div>
+           
+     <button onclick= type="button" class="btn btn-primary"   data-bs-toggle="modal" data-bs-target="#mealDetails">Details
+    </button>  
+    </div>
+    </div>
     `;
     container.appendChild(mealDiv);
-
-    
    });
-
 }
 
 const searchMeals =()=>{
@@ -43,6 +42,7 @@ const searchMeals =()=>{
   
 
 }
+
 
 
 loadData("rice");
